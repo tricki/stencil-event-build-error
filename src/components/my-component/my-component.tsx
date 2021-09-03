@@ -1,4 +1,4 @@
-import { Component, Prop, h, Method } from '@stencil/core';
+import { Component, Prop, h, Method, EventEmitter, Event } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 @Component({
@@ -21,6 +21,8 @@ export class MyComponent {
    * The last name
    */
   @Prop() last: string;
+
+  @Event() someEvent: EventEmitter<void>;
 
   @Method()
   async didDismiss() {
