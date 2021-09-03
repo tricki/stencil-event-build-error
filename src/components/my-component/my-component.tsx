@@ -1,4 +1,5 @@
 import { Component, Prop, h, Method, EventEmitter, Event } from '@stencil/core';
+import { getEventListenerPromise } from '../../utils/getEventListenerPromise';
 import { format } from '../../utils/utils';
 
 @Component({
@@ -26,7 +27,7 @@ export class MyComponent {
 
   @Method()
   async didDismiss() {
-    return new window.Event('foo');
+    return getEventListenerPromise(document.body, 'someEvent');
   }
 
   private getText(): string {
